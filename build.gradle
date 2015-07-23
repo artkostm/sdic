@@ -1,0 +1,57 @@
+buildscript {
+    repositories { mavenCentral() }
+    dependencies {
+		classpath 'log4j:log4j:1.+'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group='reflection_util'
+version='0.0.1'
+
+[compileJava, compileTestJava]*.options*.compilerArgs = ['-Xlint:all']
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+		resources {
+            srcDir 'src/main/resources'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.google.guava:guava:18.0'
+	
+	compile 'org.javassist:javassist:3.18.2-GA'
+	compile 'com.google.code.findbugs:jsr305:3.0.0'
+	compile 'org.slf4j:slf4j-api:1.6.1'
+	compile 'dom4j:dom4j:1.6.1'
+	
+	compile 'com.google.code.gson:gson:1.4'
+	compile 'javax.servlet:servlet-api:2.5'
+	compile 'org.slf4j:slf4j-simple:1.6.1'
+	compile 'org.apache.commons:commons-vfs2:2.0'
+	testCompile 'junit:junit:4.5'
+	
+    compile 'org.apache.logging.log4j:log4j-core:2.2'
+    compile 'org.apache.commons:commons-lang3:3.0'
+}
+
+jar {
+    manifest {
+        attributes 'Created-By': 'Artsiom Chuiko,'+System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')'
+		attributes 'Main-Class': 'com.epam.jmp.achuiko.t5.Main'
+    }
+}
