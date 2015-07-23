@@ -8,7 +8,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
-group='reflection_util'
+group='simple_di_container'
 version='0.0.1'
 
 [compileJava, compileTestJava]*.options*.compilerArgs = ['-Xlint:all']
@@ -52,6 +52,5 @@ dependencies {
 jar {
     manifest {
         attributes 'Created-By': 'Artsiom Chuiko,'+System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')'
-		attributes 'Main-Class': 'com.epam.jmp.achuiko.t5.Main'
     }
 }
